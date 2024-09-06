@@ -183,7 +183,7 @@ disk_load:
     pop cx
     pop bx
     pop ax
-    cli
+    cli                                             ; not doing this will make the system still stuck in the interrupt
     ret
 
 ;
@@ -237,8 +237,8 @@ main:
 
     mov si, new_line
     mov ax, [0x7E00]        ; this is the ofset of 200 from 0x7C00, and in the disk, this will be 0xF0FF which in little endian is 65520
-    call print_num
-    call puts
+    call print_num          ; print out 65520
+    call puts               ; print new line
     ; exit
     jmp $
 
