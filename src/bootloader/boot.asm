@@ -225,7 +225,7 @@ main:
     mov sp, 07C00h
 
     ; read disk
-    mov [ebr_drive_number], dl
+    mov [ebr_drive_number], dl  ; BIOS should set dl to the drive number
     mov ax, 1                   ; LBA=1, second sector from disk
     mov cl, 1                   ; 1 sector to read
     mov bx, 0x7E00              ; data should be after the bootloader
@@ -236,7 +236,7 @@ main:
     call puts               ; call puts function
 
     mov si, new_line
-    mov ax, [0x7E00]
+    mov ax, [0x7E00]        ; this is the ofset of 200 from 0x7C00, and in the disk, this will be 0xF0FF which in little endian is 65520
     call print_num
     call puts
     ; exit
