@@ -6,7 +6,7 @@ BUILD_DIR=build
 TEST_DIR=test
 
 .PHONY : all floppy_image kernel bootloader clean always
-all: test_fat
+# all: test_fat
 
 #
 # Floppy disk image

@@ -1,4 +1,3 @@
-org 0x7C00
 bits 16
 
 %define ENDL 0x0D, 0x0A
@@ -30,15 +29,6 @@ puts:
 
 
 main:
-    mov ax, 0
-    ; setup segments registers
-    mov ds, ax
-    mov ss, ax
-    mov es, ax
-
-    ; setup stack pointer to 0x7C00, because it write downwards
-    mov sp, 0x7C00
-
     ; print data
     mov si, data            ; put the address of data into si register
     call puts               ; call puts function
